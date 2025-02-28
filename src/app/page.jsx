@@ -1,8 +1,42 @@
+'use client'
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { getPokemons } from "@/lib/getPokemons";
 
-export default async function PokemonList() {
-    const pokemons = await getPokemons();
+export default function PokemonList() {
+    const [pokemons, setPokemons] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getPokemons();
+                setPokemons(data);
+                setLoading(false);
+            } catch (err) {
+                setError("Failed to load data");
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <div className="text-xl text-green-500">Loading Pokémon...</div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <div className="text-xl text-red-500">{error}</div>
+            </div>
+        );
+    }
 
     return (
         <div className="text-center mx-4">

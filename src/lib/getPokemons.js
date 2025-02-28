@@ -1,3 +1,4 @@
+// this javascript file uses a regular fetch async function to call an api and return the data. the reason i chose this one is because i spent hours trying to get the other ones to work and miserable failed
 export async function getPokemons() {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=12");
     const data = await res.json();
