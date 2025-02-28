@@ -1,8 +1,23 @@
+# Next.js Data Fetching Project
+
+This is a Next.js project designed to fetch and display data from the Pokémon API. It demonstrates how to fetch data both client-side (with React hooks) and server-side (via custom API routes), and handle various states like loading, error, and success.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Features
+- Fetches Pokémon data from the [PokeAPI](https://pokeapi.co/).
+- Displays a list of Pokémon with their names, images, types, abilities, and stats.
+- Handles loading and error states during the data fetching process.
 
-First, run the development server:
+## Installation
+
+To get started with this project:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/next_data_fetching.git
+
+Run the development server:
 
 ```bash
 npm run dev
